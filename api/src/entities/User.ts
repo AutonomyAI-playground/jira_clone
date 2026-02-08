@@ -30,6 +30,9 @@ class User extends BaseEntity {
   @Column('varchar')
   email: string;
 
+  @Column('varchar', { nullable: true })
+  passwordHash: string;
+
   @Column('varchar', { length: 2000 })
   avatarUrl: string;
 

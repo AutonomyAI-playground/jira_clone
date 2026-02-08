@@ -36,3 +36,9 @@ export class InvalidTokenError extends CustomError {
     super(message, 'INVALID_TOKEN', 401);
   }
 }
+
+export class InvalidCredentialsError extends CustomError {
+  constructor(message = 'Invalid email or password.') {
+    super(message, 'INVALID_CREDENTIALS', 401);
+  }
+}

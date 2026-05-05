@@ -8,27 +8,29 @@ import { Container, StyledToast, CloseIcon, Title, Message } from './Styles';
 const Toast = () => {
   const [toasts, setToasts] = useState([]);
 
+  const removeToast = id => {
+    setToasts(currentToasts => currentToasts.filter(toast => toast.id !== id));
+  };
+
   useEffect(() => {
     const addToast = ({ type = 'success', title, message, duration = 5 }) => {
       const id = uniqueId('toast-');
 
       setToasts(currentToasts => [...currentToasts, { id, type, title, message }]);
 
+      // Auto-dismiss after duration seconds (0 = no auto-dismiss)
       if (duration) {
         setTimeout(() => removeToast(id), duration * 1000);
       }
     };
 
+    // Subscribe to global toast events via pubsub
     pubsub.on('toast', addToast);
 
     return () => {
       pubsub.off('toast', addToast);
     };
   }, []);
-
-  const removeToast = id => {
-    setToasts(currentToasts => currentToasts.filter(toast => toast.id !== id));
-  };
 
   return (
     <Container>

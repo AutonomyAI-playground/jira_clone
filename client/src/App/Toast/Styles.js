@@ -13,14 +13,16 @@ export const Container = styled.div`
 export const StyledToast = styled.div`
   position: relative;
   margin-bottom: 5px;
-  width: 300px;
+  min-width: 300px;
+  max-width: 400px;
   padding: 15px 20px;
-  border-radius: 3px;
+  border-radius: 8px;
   color: #fff;
   background: ${props => color[props.type]};
   cursor: pointer;
   transition: all 0.15s;
-  ${mixin.clearfix}
+  display: flex;
+  align-items: center; /* Vertically center avatar with content */
   ${mixin.hardwareAccelerate}
 
   &.jira-toast-enter,
@@ -52,8 +54,24 @@ export const Title = styled.div`
 `;
 
 export const Message = styled.div`
-  padding: 8px 10px 0 0;
+  padding: 8px 22px 0 0;
   white-space: pre-wrap;
   ${font.size(14)}
   ${font.medium}
+`;
+
+export const AvatarImage = styled.img`
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  flex-shrink: 0; /* Prevent avatar from shrinking when text is long */
+  border: 3px solid rgba(255, 255, 255, 0.3);
+`;
+
+export const ContentWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 `;

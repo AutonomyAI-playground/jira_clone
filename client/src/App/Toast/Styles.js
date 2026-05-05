@@ -23,12 +23,14 @@ export const StyledToast = styled.div`
   ${mixin.clearfix}
   ${mixin.hardwareAccelerate}
 
+  /* Enter animation: fade in from right */
   &.jira-toast-enter,
   &.jira-toast-exit.jira-toast-exit-active {
     opacity: 0;
     right: -10px;
   }
 
+  /* Exit animation: fade out to right */
   &.jira-toast-exit,
   &.jira-toast-enter.jira-toast-enter-active {
     opacity: 1;

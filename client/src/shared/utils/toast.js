@@ -14,4 +14,9 @@ const error = err => {
   });
 };
 
-export default { show, error, success };
+// Additional helper methods for warning and info toast types
+const warning = title => show({ type: 'warning', title });
+
+const info = title => show({ type: 'info', title });
+
+export default { show, error, success, warning, info };

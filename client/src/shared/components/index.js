@@ -5,6 +5,7 @@ export { default as Breadcrumbs } from './Breadcrumbs';
 export { default as ConfirmModal } from './ConfirmModal';
 export { default as CopyLinkButton } from './CopyLinkButton';
 export { default as DatePicker } from './DatePicker';
+export { default as Error404 } from './Error404';
 export { default as Form } from './Form';
 export { default as Icon } from './Icon';
 export { default as Input } from './Input';

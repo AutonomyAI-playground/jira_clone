@@ -25,6 +25,7 @@ const Avatar = ({ className, avatarUrl, name, size, ...otherProps }) => {
     ...otherProps,
   };
 
+  // Display image avatar when URL is provided, otherwise show initial letter
   if (avatarUrl) {
     return <Image avatarUrl={avatarUrl} {...sharedProps} />;
   }
@@ -47,6 +48,8 @@ const colors = [
   '#57A5DA',
 ];
 
+// Generate consistent color based on first character of name
+// Uses modulo of character code to deterministically map names to colors
 const getColorFromName = name => colors[name.toLocaleLowerCase().charCodeAt(0) % colors.length];
 
 Avatar.propTypes = propTypes;

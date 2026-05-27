@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Divider } from './Styles';
+import { Container, Divider, LastItem } from './Styles';
 
 const propTypes = {
   items: PropTypes.array.isRequired,
@@ -12,7 +12,7 @@ const Breadcrumbs = ({ items }) => (
     {items.map((item, index) => (
       <Fragment key={item}>
         {index !== 0 && <Divider>/</Divider>}
-        {item}
+        {index === items.length - 1 ? <LastItem>{item}</LastItem> : item}
       </Fragment>
     ))}
   </Container>

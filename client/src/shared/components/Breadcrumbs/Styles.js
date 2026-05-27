@@ -13,3 +13,7 @@ export const Divider = styled.span`
   margin: 0 10px;
   ${font.size(18)};
 `;
+
+export const LastItem = styled.span`
+  color: #ff0000;
+`;
